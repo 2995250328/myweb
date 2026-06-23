@@ -8,6 +8,9 @@ type Exercise = {
   name: string;
   dose: string;
   cue: string;
+  demo?: string;
+  mistake?: string;
+  sourceHref?: string;
 };
 
 type Session = {
@@ -121,13 +124,13 @@ const strengthSessions: Session[] = [
     title: "拉力 + 前水平基础",
     focus: "严格拉力、爆发拉力、肩胛下沉与核心抗伸展。",
     exercises: [
-      { name: "热身", dose: "8-10 分钟", cue: "低强度有氧、肩带热身、腕部活动、dead bug、arch hang。" },
-      { name: "tuck / advanced tuck front lever hold", dose: "5 x 8-12 秒", cue: "肩胛下沉后倾，躯干空心，髋别塌。" },
-      { name: "严格引体或加重引体", dose: "4 x 4-6", cue: "RPE 7-8，保留 1-3 次余力。" },
-      { name: "胸触杠引体 / 爆发引体", dose: "4 x 3-5", cue: "速度优先，变慢就停。" },
-      { name: "环/杠划船", dose: "3 x 8-12", cue: "肩胛后缩下沉，身体保持一条线。" },
-      { name: "直臂下压 / 弹力带前水平下压", dose: "3 x 12-15", cue: "肘伸直，背阔主动发力。" },
-      { name: "悬垂举腿", dose: "3 x 6-10", cue: "不要甩腿，骨盆后倾收住。" },
+      { name: "热身", dose: "8-10 分钟", cue: "低强度有氧、肩带热身、腕部活动、dead bug、arch hang。", demo: "warmup", mistake: "直接上强度、手腕肩胛没准备。", sourceHref: "https://www.reddit.com/r/bodyweightfitness/wiki/kb/recommended_routine/" },
+      { name: "tuck / advanced tuck front lever hold", dose: "5 x 8-12 秒", cue: "肩胛下沉后倾，躯干空心，髋别塌。", demo: "frontLever", mistake: "弯肘、耸肩、髋塌、腰反弓。", sourceHref: "https://www.youtube.com/watch?v=rx0vr-teG7M" },
+      { name: "严格引体或加重引体", dose: "4 x 4-6", cue: "RPE 7-8，保留 1-3 次余力。", demo: "pullup", mistake: "甩腿借力、半程、下放失控。", sourceHref: "https://www.youtube.com/watch?v=aNUSgyWRJYA" },
+      { name: "胸触杠引体 / 爆发引体", dose: "4 x 3-5", cue: "速度优先，变慢就停。", demo: "highPull", mistake: "只抬头不拉高、摆动太大、速度下降还硬做。", sourceHref: "https://www.youtube.com/results?search_query=chest+to+bar+pull+up+calisthenics" },
+      { name: "环/杠划船", dose: "3 x 8-12", cue: "肩胛后缩下沉，身体保持一条线。", demo: "bodyRow", mistake: "塌腰、耸肩、只用手臂拉。", sourceHref: "https://www.reddit.com/r/bodyweightfitness/wiki/exercises/row/" },
+      { name: "直臂下压 / 弹力带前水平下压", dose: "3 x 12-15", cue: "肘伸直，背阔主动发力。", demo: "straightArmPulldown", mistake: "肘弯曲、肩前顶、用身体压。", sourceHref: "https://www.youtube.com/results?search_query=straight+arm+pulldown+front+lever+calisthenics" },
+      { name: "悬垂举腿", dose: "3 x 6-10", cue: "不要甩腿，骨盆后倾收住。", demo: "hangingLegRaise", mistake: "摆动、腰反弓、只屈髋不卷骨盆。", sourceHref: "https://www.youtube.com/results?search_query=hanging+leg+raise+calisthenics+form" },
     ],
   },
   {
@@ -135,13 +138,13 @@ const strengthSessions: Session[] = [
     title: "推力 + 俄挺基础",
     focus: "支撑、肩胛前伸、直臂组织适应和 L-sit 压缩。",
     exercises: [
-      { name: "热身", dose: "8-12 分钟", cue: "低强度有氧、手腕预热、wall slide、肩胛俯卧撑。" },
-      { name: "planche lean", dose: "5 x 10-20 秒", cue: "主动推地，肘锁定，手腕无痛才加前倾。" },
-      { name: "双杠臂屈伸 / 加重双杠臂屈伸", dose: "4 x 5-8", cue: "底位稳定，肩不要前顶。" },
-      { name: "伪俄挺俯卧撑", dose: "4 x 6-10", cue: "身体前移但不塌腰，肩胛保持前伸。" },
-      { name: "pike push-up", dose: "3 x 6-10", cue: "头部落点稳定，肘向后下。" },
-      { name: "L-sit tuck / L-sit", dose: "5 x 10-20 秒", cue: "肩压稳，膝伸直路线逐步推进。" },
-      { name: "弹力带外旋 + face pull", dose: "各 2-3 x 12-15", cue: "控制式，不追重量。" },
+      { name: "热身", dose: "8-12 分钟", cue: "低强度有氧、手腕预热、wall slide、肩胛俯卧撑。", demo: "wristWarmup", mistake: "手腕没热开就做大角度支撑。", sourceHref: "https://www.reddit.com/r/bodyweightfitness/wiki/kb/recommended_routine/" },
+      { name: "planche lean", dose: "5 x 10-20 秒", cue: "主动推地，肘锁定，手腕无痛才加前倾。", demo: "plancheLean", mistake: "只前倒不推地、肘弯、手腕痛还硬撑。", sourceHref: "https://www.youtube.com/results?search_query=planche+lean+tutorial+calisthenics" },
+      { name: "双杠臂屈伸 / 加重双杠臂屈伸", dose: "4 x 5-8", cue: "底位稳定，肩不要前顶。", demo: "dip", mistake: "下放过深、肩前顶、耸肩。", sourceHref: "https://www.reddit.com/r/bodyweightfitness/wiki/exercises/dip/" },
+      { name: "伪俄挺俯卧撑", dose: "4 x 6-10", cue: "身体前移但不塌腰，肩胛保持前伸。", demo: "pseudoPlanchePushup", mistake: "塌腰、肘外飞、前倾太大导致腕痛。", sourceHref: "https://www.youtube.com/results?search_query=pseudo+planche+push+up+tutorial" },
+      { name: "pike push-up", dose: "3 x 6-10", cue: "头部落点稳定，肘向后下。", demo: "pikePushup", mistake: "头随便落、肘外飞、腰反弓。", sourceHref: "https://fitnessfaqs.com/articles/ff-video-tag/handstands/" },
+      { name: "L-sit tuck / L-sit", dose: "5 x 10-20 秒", cue: "肩压稳，膝伸直路线逐步推进。", demo: "lsit", mistake: "肩塌、膝松、用摆动抬腿。", sourceHref: "https://www.reddit.com/r/bodyweightfitness/wiki/exercises/l-sit/" },
+      { name: "弹力带外旋 + face pull", dose: "各 2-3 x 12-15", cue: "控制式，不追重量。", demo: "facePull", mistake: "重量太大、耸肩、腰后仰。", sourceHref: "https://orthoinfo.aaos.org/en/recovery/rotator-cuff-and-shoulder-conditioning-program/" },
     ],
   },
   {
@@ -149,12 +152,12 @@ const strengthSessions: Session[] = [
     title: "倒立 + 垂直推 + 稳定性",
     focus: "肩屈活动度、过顶承重、前锯肌与倒立线条。",
     exercises: [
-      { name: "热身", dose: "8-12 分钟", cue: "肩屈活动、胸椎伸展、腕部热身、肩胛上提下压。" },
-      { name: "面墙倒立", dose: "6 x 20-45 秒", cue: "臀肋收紧，耳夹臂，掌指主动抓地。" },
-      { name: "pike push-up 或靠墙倒立撑离心", dose: "4 x 4-8", cue: "RPE 7-8，动作线条优先。" },
-      { name: "wall walk / 肩触墙倒立控制", dose: "4 x 3-6", cue: "技术练习，不做疲劳堆量。" },
-      { name: "serratus wall slide / push-up plus", dose: "2-3 x 10-12", cue: "重点是推开地面或墙面。" },
-      { name: "hollow hold + arch hold", dose: "各 3 x 20-30 秒", cue: "建立前水平与倒立的躯干张力。" },
+      { name: "热身", dose: "8-12 分钟", cue: "肩屈活动、胸椎伸展、腕部热身、肩胛上提下压。", demo: "overheadWarmup", mistake: "肩屈没打开就上墙。", sourceHref: "https://fitnessfaqs.com/articles/ff-video-tag/handstands/" },
+      { name: "面墙倒立", dose: "6 x 20-45 秒", cue: "臀肋收紧，耳夹臂，掌指主动抓地。", demo: "wallHandstand", mistake: "腰反弓、耸肩塌肩、头抬太多。", sourceHref: "https://fitnessfaqs.com/articles/ff-video-tag/handstands/" },
+      { name: "pike push-up 或靠墙倒立撑离心", dose: "4 x 4-8", cue: "RPE 7-8，动作线条优先。", demo: "pikePushup", mistake: "下放撞头、肘外飞、躯干松。", sourceHref: "https://fitnessfaqs.com/articles/ff-video-tag/handstands/" },
+      { name: "wall walk / 肩触墙倒立控制", dose: "4 x 3-6", cue: "技术练习，不做疲劳堆量。", demo: "wallWalk", mistake: "走太近导致塌腰、手步太大、肩不稳。", sourceHref: "https://fitnessfaqs.com/articles/ff-video-tag/handstands/" },
+      { name: "serratus wall slide / push-up plus", dose: "2-3 x 10-12", cue: "重点是推开地面或墙面。", demo: "pushUpPlus", mistake: "弯肘、耸肩、胸椎塌陷。", sourceHref: "https://www.physio-pedia.com/Push_Up_Plus_Exercise" },
+      { name: "hollow hold + arch hold", dose: "各 3 x 20-30 秒", cue: "建立前水平与倒立的躯干张力。", demo: "hollowArch", mistake: "腰离地、憋气、肩颈紧。", sourceHref: "https://www.reddit.com/r/bodyweightfitness/wiki/exercises/core/" },
     ],
   },
   {
@@ -162,13 +165,13 @@ const strengthSessions: Session[] = [
     title: "双力臂 + 综合力量 + 下肢保留",
     focus: "转杠技术、爆发拉力、下肢维持与整体恢复。",
     exercises: [
-      { name: "热身", dose: "8-10 分钟", cue: "全身动态热身、腕肩髋准备。" },
-      { name: "低杠转杠 / 弹力带辅助双力臂", dose: "5 x 2-4", cue: "先高拉，再快转，再稳撑。" },
-      { name: "爆发引体", dose: "5 x 3", cue: "每组速度快，质量下降就减少组数。" },
-      { name: "深蹲/保加利亚分腿蹲 + RDL/单腿 RDL", dose: "4 x 5-8 + 3 x 6-8", cue: "RPE 7-8，保留下肢能力。" },
-      { name: "dip support hold", dose: "3 x 20-30 秒", cue: "肩稳定，肘伸直，胸骨打开。" },
-      { name: "chin-up 或中立握引体", dose: "3 x 6-10", cue: "补拉力，避免借摆。" },
-      { name: "侧桥或反向挺身", dose: "3 x 20-30 秒或 2 x 10-15", cue: "给躯干和后链收尾。" },
+      { name: "热身", dose: "8-10 分钟", cue: "全身动态热身、腕肩髋准备。", demo: "warmup", mistake: "冷启动就做爆发拉。", sourceHref: "https://www.reddit.com/r/bodyweightfitness/wiki/kb/recommended_routine/" },
+      { name: "低杠转杠 / 弹力带辅助双力臂", dose: "5 x 2-4", cue: "先高拉，再快转，再稳撑。", demo: "muscleUpTransition", mistake: "只翻腕、拉高不够、支撑末端塌肩。", sourceHref: "https://www.youtube.com/results?search_query=strict+muscle+up+tutorial+calisthenics" },
+      { name: "爆发引体", dose: "5 x 3", cue: "每组速度快，质量下降就减少组数。", demo: "highPull", mistake: "速度变慢还硬做、摆动太大。", sourceHref: "https://www.youtube.com/results?search_query=explosive+pull+up+calisthenics+tutorial" },
+      { name: "深蹲/保加利亚分腿蹲 + RDL/单腿 RDL", dose: "4 x 5-8 + 3 x 6-8", cue: "RPE 7-8，保留下肢能力。", demo: "lowerBody", mistake: "膝内扣、髋铰链变弯腰、动作太快。", sourceHref: "https://www.youtube.com/results?search_query=bulgarian+split+squat+single+leg+rdl+form" },
+      { name: "dip support hold", dose: "3 x 20-30 秒", cue: "肩稳定，肘伸直，胸骨打开。", demo: "dipSupport", mistake: "耸肩、肘弯、胸塌。", sourceHref: "https://www.reddit.com/r/bodyweightfitness/wiki/exercises/dip/" },
+      { name: "chin-up 或中立握引体", dose: "3 x 6-10", cue: "补拉力，避免借摆。", demo: "neutralPull", mistake: "借摆、耸肩启动、下放失控。", sourceHref: "https://www.youtube.com/watch?v=aNUSgyWRJYA" },
+      { name: "侧桥或反向挺身", dose: "3 x 20-30 秒或 2 x 10-15", cue: "给躯干和后链收尾。", demo: "sideBridge", mistake: "髋塌、肩顶不稳、憋气。", sourceHref: "https://www.youtube.com/results?search_query=side+plank+back+extension+form" },
     ],
   },
 ];
@@ -848,6 +851,219 @@ function RehabIllustration({ kind }: { kind: string }) {
   );
 }
 
+function StrengthIllustration({ kind = "warmup" }: { kind?: string }) {
+  const stroke = "#1f2528";
+  const accent = "#c95645";
+  const support = "#2f6858";
+
+  return (
+    <svg className={styles.strengthSvg} viewBox="0 0 260 160" role="img" aria-label="专项动作示意图">
+      <rect width="260" height="160" rx="10" fill="#f7f3e8" />
+      <line x1="18" y1="138" x2="242" y2="138" stroke="#d8d2c4" strokeWidth="4" />
+      {(kind === "pullup" || kind === "highPull" || kind === "neutralPull") && (
+        <>
+          <line x1="58" y1="30" x2="202" y2="30" stroke={support} strokeWidth="9" strokeLinecap="round" />
+          <circle cx="130" cy={kind === "highPull" ? 55 : 72} r="13" fill={stroke} />
+          <line x1="130" y1={kind === "highPull" ? 69 : 86} x2="130" y2="126" stroke={stroke} strokeWidth="10" strokeLinecap="round" />
+          <line x1="118" y1={kind === "highPull" ? 48 : 58} x2="100" y2="32" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="142" y1={kind === "highPull" ? 48 : 58} x2="160" y2="32" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="126" y1="126" x2="108" y2="138" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+          <line x1="134" y1="126" x2="152" y2="138" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+          <text x="72" y="154" fontSize="13" fill={support} fontWeight="700">{kind === "highPull" ? "胸口拉向杠，速度优先" : "肩胛先下沉，严格全程"}</text>
+        </>
+      )}
+      {kind === "frontLever" && (
+        <>
+          <line x1="42" y1="34" x2="210" y2="34" stroke={support} strokeWidth="9" strokeLinecap="round" />
+          <circle cx="76" cy="70" r="12" fill={stroke} />
+          <line x1="88" y1="73" x2="166" y2="76" stroke={stroke} strokeWidth="12" strokeLinecap="round" />
+          <line x1="73" y1="56" x2="58" y2="36" stroke={accent} strokeWidth="7" strokeLinecap="round" />
+          <line x1="82" y1="56" x2="98" y2="36" stroke={accent} strokeWidth="7" strokeLinecap="round" />
+          <line x1="142" y1="76" x2="142" y2="116" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="158" y1="76" x2="158" y2="116" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <text x="80" y="145" fontSize="13" fill={support} fontWeight="700">肩胛下沉，髋不塌</text>
+        </>
+      )}
+      {kind === "bodyRow" && (
+        <>
+          <line x1="52" y1="62" x2="202" y2="62" stroke={support} strokeWidth="8" strokeLinecap="round" />
+          <circle cx="92" cy="92" r="12" fill={stroke} />
+          <line x1="104" y1="96" x2="180" y2="118" stroke={stroke} strokeWidth="11" strokeLinecap="round" />
+          <line x1="96" y1="78" x2="82" y2="64" stroke={accent} strokeWidth="7" strokeLinecap="round" />
+          <line x1="108" y1="82" x2="126" y2="64" stroke={accent} strokeWidth="7" strokeLinecap="round" />
+          <line x1="170" y1="118" x2="204" y2="138" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+          <text x="72" y="34" fontSize="13" fill={support} fontWeight="700">身体一条线，拉胸靠近杠</text>
+        </>
+      )}
+      {kind === "straightArmPulldown" && (
+        <>
+          <rect x="205" y="32" width="8" height="84" fill={support} />
+          <circle cx="86" cy="42" r="12" fill={stroke} />
+          <line x1="86" y1="56" x2="90" y2="118" stroke={stroke} strokeWidth="9" strokeLinecap="round" />
+          <line x1="92" y1="68" x2="154" y2="92" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="154" y1="92" x2="210" y2="70" stroke={support} strokeWidth="4" strokeLinecap="round" />
+          <text x="64" y="148" fontSize="13" fill={support} fontWeight="700">肘伸直，背阔下压</text>
+        </>
+      )}
+      {kind === "hangingLegRaise" && (
+        <>
+          <line x1="58" y1="28" x2="202" y2="28" stroke={support} strokeWidth="9" strokeLinecap="round" />
+          <circle cx="130" cy="58" r="12" fill={stroke} />
+          <line x1="130" y1="72" x2="130" y2="110" stroke={stroke} strokeWidth="10" strokeLinecap="round" />
+          <line x1="119" y1="48" x2="100" y2="30" stroke={accent} strokeWidth="7" strokeLinecap="round" />
+          <line x1="141" y1="48" x2="160" y2="30" stroke={accent} strokeWidth="7" strokeLinecap="round" />
+          <line x1="126" y1="110" x2="92" y2="96" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="134" y1="110" x2="170" y2="96" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <text x="80" y="148" fontSize="13" fill={support} fontWeight="700">骨盆后倾，不摆腿</text>
+        </>
+      )}
+      {(kind === "plancheLean" || kind === "pseudoPlanchePushup") && (
+        <>
+          <circle cx="78" cy="80" r="12" fill={stroke} />
+          <line x1="90" y1="86" x2="158" y2="100" stroke={stroke} strokeWidth="12" strokeLinecap="round" />
+          <line x1="104" y1="92" x2="74" y2="136" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="151" y1="100" x2="196" y2="136" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+          <path d="M92 62 L74 136" stroke={support} strokeWidth="4" strokeDasharray="5 5" />
+          <text x="72" y="36" fontSize="13" fill={support} fontWeight="700">推地前伸，肘锁定</text>
+        </>
+      )}
+      {kind === "dip" && (
+        <>
+          <line x1="72" y1="60" x2="72" y2="138" stroke={support} strokeWidth="8" />
+          <line x1="188" y1="60" x2="188" y2="138" stroke={support} strokeWidth="8" />
+          <circle cx="130" cy="54" r="12" fill={stroke} />
+          <line x1="130" y1="68" x2="130" y2="110" stroke={stroke} strokeWidth="10" strokeLinecap="round" />
+          <line x1="120" y1="76" x2="74" y2="72" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="140" y1="76" x2="186" y2="72" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="126" y1="110" x2="108" y2="138" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+          <line x1="134" y1="110" x2="152" y2="138" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+          <text x="82" y="32" fontSize="13" fill={support} fontWeight="700">肩稳，底位不过深</text>
+        </>
+      )}
+      {kind === "pikePushup" && (
+        <>
+          <circle cx="168" cy="72" r="12" fill={stroke} />
+          <line x1="162" y1="84" x2="116" y2="62" stroke={stroke} strokeWidth="11" strokeLinecap="round" />
+          <line x1="116" y1="62" x2="76" y2="136" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="116" y1="62" x2="144" y2="136" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+          <line x1="170" y1="84" x2="198" y2="132" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <text x="58" y="32" fontSize="13" fill={support} fontWeight="700">头落三角点，肘向后</text>
+        </>
+      )}
+      {kind === "lsit" && (
+        <>
+          <line x1="72" y1="82" x2="72" y2="138" stroke={support} strokeWidth="8" />
+          <line x1="118" y1="82" x2="118" y2="138" stroke={support} strokeWidth="8" />
+          <circle cx="96" cy="52" r="12" fill={stroke} />
+          <line x1="96" y1="66" x2="96" y2="104" stroke={stroke} strokeWidth="10" strokeLinecap="round" />
+          <line x1="86" y1="78" x2="72" y2="88" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="106" y1="78" x2="118" y2="88" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="96" y1="104" x2="170" y2="104" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="98" y1="113" x2="172" y2="113" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <text x="78" y="28" fontSize="13" fill={support} fontWeight="700">肩压稳，主动压缩</text>
+        </>
+      )}
+      {kind === "facePull" && (
+        <>
+          <rect x="208" y="38" width="8" height="82" fill={support} />
+          <circle cx="95" cy="48" r="12" fill={stroke} />
+          <line x1="95" y1="62" x2="98" y2="124" stroke={stroke} strokeWidth="9" strokeLinecap="round" />
+          <line x1="100" y1="76" x2="154" y2="62" stroke={accent} strokeWidth="7" strokeLinecap="round" />
+          <line x1="154" y1="62" x2="212" y2="76" stroke={support} strokeWidth="4" />
+          <text x="70" y="148" fontSize="13" fill={support} fontWeight="700">拉向脸，肩不耸</text>
+        </>
+      )}
+      {kind === "wallHandstand" && (
+        <>
+          <rect x="196" y="18" width="8" height="120" fill={support} />
+          <circle cx="160" cy="112" r="12" fill={stroke} />
+          <line x1="160" y1="100" x2="160" y2="52" stroke={stroke} strokeWidth="10" strokeLinecap="round" />
+          <line x1="150" y1="96" x2="128" y2="136" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="170" y1="96" x2="192" y2="136" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="156" y1="52" x2="148" y2="20" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="164" y1="52" x2="198" y2="20" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <text x="44" y="32" fontSize="13" fill={support} fontWeight="700">臀肋收紧，耳夹臂</text>
+        </>
+      )}
+      {kind === "wallWalk" && (
+        <>
+          <rect x="204" y="24" width="8" height="112" fill={support} />
+          <circle cx="150" cy="102" r="12" fill={stroke} />
+          <line x1="148" y1="90" x2="172" y2="58" stroke={stroke} strokeWidth="10" strokeLinecap="round" />
+          <line x1="162" y1="70" x2="204" y2="62" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="172" y1="58" x2="196" y2="32" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="143" y1="98" x2="112" y2="136" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="156" y1="98" x2="184" y2="136" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <text x="50" y="34" fontSize="13" fill={support} fontWeight="700">小步上墙，线条优先</text>
+        </>
+      )}
+      {kind === "hollowArch" && (
+        <>
+          <path d="M56 96 Q130 58 204 96" fill="none" stroke={accent} strokeWidth="9" strokeLinecap="round" />
+          <circle cx="68" cy="92" r="11" fill={stroke} />
+          <path d="M56 122 Q130 138 204 122" fill="none" stroke={support} strokeWidth="9" strokeLinecap="round" />
+          <circle cx="68" cy="124" r="11" fill={stroke} />
+          <text x="70" y="36" fontSize="13" fill={support} fontWeight="700">空心 / 反弓，躯干张力</text>
+        </>
+      )}
+      {kind === "muscleUpTransition" && (
+        <>
+          <line x1="54" y1="42" x2="206" y2="42" stroke={support} strokeWidth="9" strokeLinecap="round" />
+          <circle cx="116" cy="76" r="12" fill={stroke} />
+          <line x1="116" y1="90" x2="136" y2="112" stroke={stroke} strokeWidth="10" strokeLinecap="round" />
+          <line x1="106" y1="66" x2="86" y2="44" stroke={accent} strokeWidth="7" strokeLinecap="round" />
+          <line x1="126" y1="66" x2="150" y2="44" stroke={accent} strokeWidth="7" strokeLinecap="round" />
+          <path d="M100 112 Q142 82 170 52" fill="none" stroke={accent} strokeWidth="4" strokeDasharray="5 5" />
+          <text x="70" y="148" fontSize="13" fill={support} fontWeight="700">高拉后快速转杠</text>
+        </>
+      )}
+      {kind === "lowerBody" && (
+        <>
+          <circle cx="96" cy="42" r="12" fill={stroke} />
+          <line x1="96" y1="56" x2="100" y2="96" stroke={stroke} strokeWidth="10" strokeLinecap="round" />
+          <line x1="98" y1="96" x2="70" y2="136" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="102" y1="96" x2="144" y2="124" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <rect x="150" y="100" width="34" height="12" rx="4" fill={support} />
+          <path d="M174 58 L132 126" stroke={support} strokeWidth="5" strokeLinecap="round" />
+          <text x="60" y="150" fontSize="13" fill={support} fontWeight="700">分腿蹲 + 髋铰链</text>
+        </>
+      )}
+      {kind === "dipSupport" && (
+        <>
+          <line x1="78" y1="54" x2="78" y2="138" stroke={support} strokeWidth="8" />
+          <line x1="182" y1="54" x2="182" y2="138" stroke={support} strokeWidth="8" />
+          <circle cx="130" cy="42" r="12" fill={stroke} />
+          <line x1="130" y1="56" x2="130" y2="108" stroke={stroke} strokeWidth="10" strokeLinecap="round" />
+          <line x1="120" y1="66" x2="78" y2="72" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="140" y1="66" x2="182" y2="72" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="126" y1="108" x2="110" y2="138" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+          <line x1="134" y1="108" x2="150" y2="138" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+        </>
+      )}
+      {kind === "sideBridge" && (
+        <>
+          <circle cx="82" cy="94" r="11" fill={stroke} />
+          <line x1="94" y1="98" x2="178" y2="110" stroke={stroke} strokeWidth="11" strokeLinecap="round" />
+          <line x1="116" y1="102" x2="96" y2="136" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="166" y1="110" x2="204" y2="136" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="116" y1="88" x2="116" y2="46" stroke={support} strokeWidth="7" strokeLinecap="round" />
+          <text x="70" y="34" fontSize="13" fill={support} fontWeight="700">髋不塌，身体一条线</text>
+        </>
+      )}
+      {(kind === "warmup" || kind === "wristWarmup" || kind === "overheadWarmup") && (
+        <>
+          <circle cx="80" cy="54" r="12" fill={stroke} />
+          <line x1="80" y1="68" x2="82" y2="118" stroke={stroke} strokeWidth="10" strokeLinecap="round" />
+          <path d="M62 72 Q80 42 102 72" fill="none" stroke={accent} strokeWidth="7" strokeLinecap="round" />
+          <path d="M116 92 Q144 76 172 92" fill="none" stroke={support} strokeWidth="6" strokeLinecap="round" />
+          <circle cx="188" cy="92" r="12" fill="none" stroke={accent} strokeWidth="5" />
+          <text x="56" y="148" fontSize="13" fill={support} fontWeight="700">肩、腕、胸椎先上线</text>
+        </>
+      )}
+    </svg>
+  );
+}
+
 export default function CalisthenicsPlanPage() {
   const [week, setWeek] = useState(1);
   const [rehabWeek, setRehabWeek] = useState(1);
@@ -1218,12 +1434,26 @@ export default function CalisthenicsPlanPage() {
               {checklist.map((item) => {
                 const key = `${today}:${selectedSession.day}:${item.name}`;
                 return (
-                  <label key={`${selectedSession.day}-${item.name}`} className={completed[key] ? styles.doneItem : ""}>
+                  <label key={`${selectedSession.day}-${item.name}`} className={`${styles.strengthExerciseCard} ${completed[key] ? styles.doneItem : ""}`}>
                     <input type="checkbox" checked={Boolean(completed[key])} onChange={() => toggleDone(item.name)} />
+                    {item.demo?.startsWith("band") ||
+                    item.demo === "row" ||
+                    item.demo === "pushUpPlus" ||
+                    item.demo === "wallSlide" ? (
+                      <RehabIllustration kind={item.demo} />
+                    ) : (
+                      <StrengthIllustration kind={item.demo} />
+                    )}
                     <span>
                       <strong>{item.name}</strong>
                       <em>{item.dose}</em>
                       <small>{item.cue}</small>
+                      {item.mistake && <small className={styles.mistakeText}>常见错误：{item.mistake}</small>}
+                      {item.sourceHref && (
+                        <a href={item.sourceHref} target="_blank" rel="noreferrer">
+                          打开示范来源
+                        </a>
+                      )}
                     </span>
                   </label>
                 );
