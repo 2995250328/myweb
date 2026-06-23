@@ -211,13 +211,13 @@ const rehabStages = [
   },
 ];
 
-const maintenance = [
-  { name: "Pendulum", dose: "1 分钟", cue: "身体前倾，手臂像钟摆轻摆，不主动甩臂。" },
-  { name: "交叉抱肩拉伸", dose: "2 x 30 秒", cue: "拉后肩，不用手硬压肘。" },
-  { name: "墙滑 Wall Slide", dose: "2 x 10", cue: "肋骨收住，前臂贴墙，上滑到不代偿的位置。" },
-  { name: "弹力带外旋", dose: "2 x 15", cue: "手肘夹身，前臂像门轴旋开。" },
-  { name: "Serratus Wall Slide 或 Push-up Plus", dose: "2 x 10", cue: "推开地面或墙，避免耸肩代偿。" },
-  { name: "站姿划船", dose: "2 x 12", cue: "肩胛后缩下沉，胸骨保持展开。" },
+const maintenance: Exercise[] = [
+  { name: "Pendulum", dose: "1 分钟", cue: "身体前倾，手臂像钟摆轻摆，不主动甩臂。", demo: "pendulum", mistake: "主动抡手臂、耸肩。", sourceHref: "https://orthoinfo.aaos.org/en/recovery/shoulder-surgery-exercise-guide/" },
+  { name: "交叉抱肩拉伸", dose: "2 x 30 秒", cue: "拉后肩，不用手硬压肘。", demo: "crossover", mistake: "压肘关节、肩前顶。", sourceHref: "https://orthoinfo.aaos.org/en/recovery/rotator-cuff-and-shoulder-conditioning-program/" },
+  { name: "墙滑 Wall Slide", dose: "2 x 10", cue: "肋骨收住，前臂贴墙，上滑到不代偿的位置。", demo: "wallSlide", mistake: "腰反弓、前臂离墙。", sourceHref: "https://www.hingehealth.com/resources/articles/wall-slides/" },
+  { name: "弹力带外旋", dose: "2 x 15", cue: "手肘夹身，前臂像门轴旋开。", demo: "bandExternal", mistake: "手肘外飞、身体后仰。", sourceHref: "https://www.youtube.com/watch?v=BY7UKjJMx2A" },
+  { name: "Serratus Wall Slide 或 Push-up Plus", dose: "2 x 10", cue: "推开地面或墙，避免耸肩。", demo: "pushUpPlus", mistake: "弯肘、耸肩。", sourceHref: "https://www.physio-pedia.com/Push_Up_Plus_Exercise" },
+  { name: "站姿划船", dose: "2 x 12", cue: "肩胛后缩下沉，胸骨保持展开。", demo: "row", mistake: "耸肩、腰后仰。", sourceHref: "https://orthoinfo.aaos.org/en/recovery/rotator-cuff-and-shoulder-conditioning-program/" },
 ];
 
 const rehabWeeklySchedule: RehabDay[] = [
