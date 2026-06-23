@@ -37,6 +37,10 @@ type RehabExercise = {
   weeks: string;
   dose: string;
   cue: string;
+  mistake: string;
+  demo: string;
+  sourceLabel: string;
+  sourceHref: string;
 };
 
 type LogEntry = {
@@ -257,148 +261,219 @@ const rehabExercises: RehabExercise[] = [
     weeks: "1-8",
     dose: "2 x 10/方向 或 1 分钟",
     cue: "身体带动手臂轻摆，不主动甩肩。疼痛期用它做低刺激活动。",
+    mistake: "主动抡手臂、耸肩、弯腰塌背。",
+    demo: "pendulum",
+    sourceLabel: "AAOS pendulum 图文",
+    sourceHref: "https://orthoinfo.aaos.org/en/recovery/shoulder-surgery-exercise-guide/",
   },
   {
     name: "交叉抱肩拉伸",
     weeks: "1-8",
     dose: "2-4 x 30 秒/侧",
     cue: "拉后肩，不把肩头向前顶。刺痛时减小幅度。",
+    mistake: "压肘关节、肩前顶、用力拉到疼痛。",
+    demo: "crossover",
+    sourceLabel: "AAOS crossover 图文",
+    sourceHref: "https://orthoinfo.aaos.org/en/recovery/rotator-cuff-and-shoulder-conditioning-program/",
   },
   {
     name: "被动外旋/内旋拉伸",
     weeks: "1-2",
     dose: "各 4 x 30 秒",
     cue: "轻拉到紧，不拉到痛。用于恢复活动度，不追极限角度。",
+    mistake: "身体扭转代偿、肘离开身体、拉到刺痛。",
+    demo: "stickRotation",
+    sourceLabel: "AAOS 被动旋转图文",
+    sourceHref: "https://orthoinfo.aaos.org/en/recovery/rotator-cuff-and-shoulder-conditioning-program/",
   },
   {
     name: "墙滑 Wall Slide",
     weeks: "1-8",
     dose: "2-3 x 8-12",
     cue: "肋骨收住，前臂贴墙；一耸肩或腰反弓就停在较低高度。",
+    mistake: "腰反弓、肋骨外翻、前臂离墙、越滑越耸肩。",
+    demo: "wallSlide",
+    sourceLabel: "Wall slide 图文",
+    sourceHref: "https://www.hingehealth.com/resources/articles/wall-slides/",
   },
   {
     name: "肩胛后缩/下沉",
     weeks: "1-2",
     dose: "2-3 x 10，每次停 3-5 秒",
     cue: "轻轻把肩胛放回稳定位置，不夹到脖子紧。",
+    mistake: " shrug 耸肩、过度夹背、腰椎代偿。",
+    demo: "scapSet",
+    sourceLabel: "AAOS 肩部调理图文",
+    sourceHref: "https://orthoinfo.aaos.org/en/recovery/rotator-cuff-and-shoulder-conditioning-program/",
   },
   {
     name: "弹力带外旋等长",
     weeks: "1-2",
     dose: "5 x 20-30 秒",
     cue: "手肘夹身，肩不耸。RPE 3-4，接近无痛。",
+    mistake: "手肘外飞、身体后仰、阻力太大。",
+    demo: "bandExternal",
+    sourceLabel: "外旋动作视频",
+    sourceHref: "https://www.youtube.com/watch?v=BY7UKjJMx2A",
   },
   {
     name: "弹力带外旋/内旋",
     weeks: "3-8",
     dose: "3 x 12-15",
     cue: "前臂像门轴旋转，身体不后仰。宁可轻阻力慢节奏。",
+    mistake: "用身体转动代偿、肘离身、速度太快。",
+    demo: "bandRotation",
+    sourceLabel: "弹力带旋转视频",
+    sourceHref: "https://www.stoneclinic.com/video/Shoulder-Theraband-External-and-Internal-Rotation",
   },
   {
     name: "侧卧外旋",
     weeks: "3-8",
     dose: "3 x 12-15",
     cue: "1-2 kg 起步，肘下可垫毛巾。顶端停一下，不借惯性。",
+    mistake: "肘离开身体、手腕乱甩、重量太重导致耸肩。",
+    demo: "sideLyingER",
+    sourceLabel: "E3 Rehab 肩袖训练",
+    sourceHref: "https://e3rehab.com/rotator-cuff-exercises/",
   },
   {
     name: "站姿划船",
     weeks: "1-8",
     dose: "2-3 x 10-12",
     cue: "肩胛后缩下沉，胸骨展开，手肘不要飞太高。",
+    mistake: "手臂硬拉、耸肩、腰后仰。",
+    demo: "row",
+    sourceLabel: "AAOS row 图文",
+    sourceHref: "https://orthoinfo.aaos.org/en/recovery/rotator-cuff-and-shoulder-conditioning-program/",
   },
   {
     name: "Serratus Wall Slide / Push-up Plus",
     weeks: "3-8",
     dose: "2-3 x 10-15",
     cue: "重点是推开墙/地面，练前锯肌，不是耸肩。",
+    mistake: "弯肘做成俯卧撑、耸肩、胸椎塌陷。",
+    demo: "pushUpPlus",
+    sourceLabel: "Push-up plus 图文",
+    sourceHref: "https://www.physio-pedia.com/Push_Up_Plus_Exercise",
   },
   {
     name: "俯卧 Y / 低斜板 Y",
     weeks: "3-6",
     dose: "2-3 x 8-12",
     cue: "拇指朝上，低负荷找下斜方和肩胛控制。",
+    mistake: "抬太高、耸肩、用腰背猛拱。",
+    demo: "proneY",
+    sourceLabel: "肩胛稳定参考",
+    sourceHref: "https://www.physio-pedia.com/Therapeutic_Exercise_for_the_Shoulder",
   },
   {
     name: "桌上闭链负重转移",
     weeks: "3-6",
     dose: "3 x 20-30 秒",
     cue: "从高支撑开始，左右轻移重心；肩不塌、不耸、不痛。",
+    mistake: "肩塌下去、手腕疼还硬撑、重心移动太大。",
+    demo: "weightShift",
+    sourceLabel: "闭链稳定参考",
+    sourceHref: "https://www.physio-pedia.com/Therapeutic_Exercise_for_the_Shoulder",
   },
   {
     name: "90 度外展位外旋",
     weeks: "5-8",
     dose: "2-3 x 8-10",
     cue: "只在无静息痛、ROM 明显恢复后加。动作慢，阻力轻。",
+    mistake: "肘掉下去、肩前顶、为了转得多而扭身体。",
+    demo: "ninetyER",
+    sourceLabel: "AAOS 90 度外旋图文",
+    sourceHref: "https://orthoinfo.aaos.org/en/recovery/rotator-cuff-and-shoulder-conditioning-program/",
   },
   {
     name: "低斜板肩触碰",
     weeks: "5-8",
     dose: "3 x 6-10/侧",
     cue: "骨盆和胸廓不晃，肩胛稳定。疼痛超过 3/10 立刻退回支撑保持。",
+    mistake: "身体左右甩、支撑肩塌陷、速度太快。",
+    demo: "shoulderTap",
+    sourceLabel: "闭链稳定参考",
+    sourceHref: "https://www.physio-pedia.com/Therapeutic_Exercise_for_the_Shoulder",
   },
   {
     name: "低角度 pike hold",
     weeks: "7-8",
     dose: "4 x 20-30 秒",
     cue: "恢复过顶承重前置动作。肩屈不足或次晨更痛就取消。",
+    mistake: "腰反弓、耸肩塌肩、角度太低太激进。",
+    demo: "pikeHold",
+    sourceLabel: "倒立基础示范",
+    sourceHref: "https://fitnessfaqs.com/articles/ff-video-tag/handstands/",
   },
   {
     name: "中立握引体回归",
     weeks: "7-8",
     dose: "3-5 组，保留 2-3 次余力",
     cue: "只做严格、慢速、无次晨反应的版本，不做爆发拉或借力。",
+    mistake: "借摆、耸肩启动、下放失控。",
+    demo: "neutralPull",
+    sourceLabel: "引体示范视频",
+    sourceHref: "https://www.youtube.com/watch?v=aNUSgyWRJYA",
+  },
+  {
+    name: "高斜板俯卧撑",
+    weeks: "7-8",
+    dose: "3 x 8-12",
+    cue: "用高台降低肩负荷，肩胛稳定、全程无痛才逐步降高度。",
+    mistake: "下放过深、肩前顶、肘外飞。",
+    demo: "inclinePush",
+    sourceLabel: "Push-up plus 参考",
+    sourceHref: "https://www.physio-pedia.com/Pushups",
   },
 ];
 
 function rehabFocusForWeek(week: number) {
   if (week <= 2) {
     return [
-      "Pendulum 2 x 10/方向",
-      "交叉抱肩拉伸 2-4 x 30 秒/侧",
-      "被动外旋/内旋拉伸 各 4 x 30 秒",
-      "墙滑 2-3 x 8-12",
-      "肩胛后缩/下沉 2-3 x 10",
-      "弹力带外旋等长 5 x 20-30 秒",
-      "斜板 Push-up Plus 2-3 x 8-12",
-      "站姿划船 2 x 10",
+      "Pendulum",
+      "交叉抱肩拉伸",
+      "被动外旋/内旋拉伸",
+      "墙滑 Wall Slide",
+      "肩胛后缩/下沉",
+      "弹力带外旋等长",
+      "Serratus Wall Slide / Push-up Plus",
+      "站姿划船",
     ];
   }
 
   if (week <= 4) {
     return [
-      "弹力带外旋 3 x 12-15",
-      "弹力带内旋 3 x 12-15",
-      "侧卧外旋 3 x 12-15",
-      "站姿划船 3 x 10-12",
-      "Serratus Wall Slide 2-3 x 10-12",
-      "斜板 Push-up Plus 3 x 10-15",
-      "俯卧 Y 或低斜板 Y 2 x 8-12",
-      "桌上闭链负重转移 3 x 20-30 秒",
+      "弹力带外旋/内旋",
+      "侧卧外旋",
+      "站姿划船",
+      "Serratus Wall Slide / Push-up Plus",
+      "俯卧 Y / 低斜板 Y",
+      "桌上闭链负重转移",
     ];
   }
 
   if (week <= 6) {
     return [
-      "侧卧外旋 3 x 15",
-      "站姿外旋 3 x 12",
-      "90 度外展位外旋 2-3 x 8-10",
-      "站姿划船 3 x 12",
-      "Push-up Plus 逐步降高 3 x 12-15",
-      "低斜板肩触碰 3 x 6-10/侧",
-      "Prone Y / scaption 3 x 10",
-      "Pike lean 或箱上熊爬支撑 4 x 15-20 秒",
+      "侧卧外旋",
+      "弹力带外旋/内旋",
+      "90 度外展位外旋",
+      "站姿划船",
+      "Serratus Wall Slide / Push-up Plus",
+      "低斜板肩触碰",
+      "俯卧 Y / 低斜板 Y",
     ];
   }
 
   return [
-    "侧卧外旋或站姿外旋 3 x 12 维持",
-    "90 度外展位外旋 3 x 10",
-    "Push-up Plus 3 x 15",
-    "俯身划船/弹力带划船 3 x 12",
-    "低角度 pike hold 4 x 20-30 秒",
-    "中立握引体回归 3-5 组，保留 2-3 次余力",
-    "高斜板俯卧撑 3 x 8-12",
-    "低台支撑转移 3 x 20-30 秒",
+    "侧卧外旋",
+    "90 度外展位外旋",
+    "Serratus Wall Slide / Push-up Plus",
+    "站姿划船",
+    "低角度 pike hold",
+    "中立握引体回归",
+    "高斜板俯卧撑",
+    "桌上闭链负重转移",
   ];
 }
 
@@ -584,6 +659,195 @@ function rehabForWeek(week: number) {
   return rehabStages[3];
 }
 
+function RehabIllustration({ kind }: { kind: string }) {
+  const stroke = "#1f2528";
+  const accent = "#c95645";
+  const support = "#2f6858";
+
+  return (
+    <svg className={styles.rehabSvg} viewBox="0 0 240 150" role="img" aria-label="动作示意图">
+      <rect width="240" height="150" rx="10" fill="#f7f3e8" />
+      <line x1="18" y1="128" x2="222" y2="128" stroke="#d8d2c4" strokeWidth="4" />
+      {kind === "pendulum" && (
+        <>
+          <circle cx="92" cy="38" r="13" fill={stroke} />
+          <path d="M88 52 L62 88 L108 88 Z" fill="none" stroke={stroke} strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
+          <line x1="108" y1="88" x2="118" y2="126" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+          <line x1="76" y1="88" x2="62" y2="126" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+          <line x1="111" y1="66" x2="138" y2="113" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <path d="M126 92 Q148 105 132 124" fill="none" stroke={accent} strokeWidth="3" strokeDasharray="4 4" />
+          <text x="138" y="45" fontSize="14" fill={support} fontWeight="700">身体前倾，手臂放松摆</text>
+        </>
+      )}
+      {kind === "crossover" && (
+        <>
+          <circle cx="88" cy="35" r="13" fill={stroke} />
+          <line x1="88" y1="50" x2="88" y2="103" stroke={stroke} strokeWidth="9" strokeLinecap="round" />
+          <line x1="88" y1="60" x2="160" y2="72" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="125" y1="67" x2="96" y2="86" stroke={support} strokeWidth="7" strokeLinecap="round" />
+          <line x1="83" y1="103" x2="65" y2="128" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+          <line x1="93" y1="103" x2="116" y2="128" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+          <text x="120" y="42" fontSize="14" fill={support} fontWeight="700">拉后肩，不压肘</text>
+        </>
+      )}
+      {kind === "stickRotation" && (
+        <>
+          <circle cx="88" cy="33" r="13" fill={stroke} />
+          <line x1="88" y1="48" x2="88" y2="102" stroke={stroke} strokeWidth="9" strokeLinecap="round" />
+          <line x1="74" y1="66" x2="102" y2="66" stroke={accent} strokeWidth="7" strokeLinecap="round" />
+          <line x1="102" y1="66" x2="132" y2="86" stroke={accent} strokeWidth="7" strokeLinecap="round" />
+          <line x1="64" y1="58" x2="144" y2="96" stroke={support} strokeWidth="4" strokeLinecap="round" />
+          <path d="M118 58 Q145 71 133 102" fill="none" stroke={accent} strokeWidth="3" strokeDasharray="4 4" />
+          <line x1="83" y1="102" x2="66" y2="128" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+          <line x1="93" y1="102" x2="112" y2="128" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+        </>
+      )}
+      {kind === "wallSlide" && (
+        <>
+          <rect x="170" y="18" width="8" height="110" fill={support} />
+          <circle cx="105" cy="42" r="13" fill={stroke} />
+          <line x1="105" y1="56" x2="112" y2="110" stroke={stroke} strokeWidth="9" strokeLinecap="round" />
+          <line x1="100" y1="68" x2="145" y2="36" stroke={accent} strokeWidth="7" strokeLinecap="round" />
+          <line x1="119" y1="70" x2="158" y2="45" stroke={accent} strokeWidth="7" strokeLinecap="round" />
+          <path d="M145 98 L158 45" stroke={support} strokeWidth="4" strokeLinecap="round" />
+          <line x1="107" y1="110" x2="86" y2="128" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+          <line x1="116" y1="110" x2="138" y2="128" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+          <text x="24" y="26" fontSize="14" fill={support} fontWeight="700">前臂贴墙上滑</text>
+        </>
+      )}
+      {kind === "scapSet" && (
+        <>
+          <circle cx="112" cy="33" r="13" fill={stroke} />
+          <line x1="112" y1="48" x2="112" y2="112" stroke={stroke} strokeWidth="9" strokeLinecap="round" />
+          <path d="M82 70 Q112 92 142 70" fill="none" stroke={accent} strokeWidth="7" strokeLinecap="round" />
+          <path d="M92 76 L102 86 M132 76 L122 86" stroke={support} strokeWidth="3" strokeLinecap="round" />
+          <line x1="107" y1="112" x2="90" y2="128" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+          <line x1="117" y1="112" x2="136" y2="128" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+          <text x="42" y="26" fontSize="14" fill={support} fontWeight="700">肩胛轻收、下沉</text>
+        </>
+      )}
+      {(kind === "bandExternal" || kind === "bandRotation" || kind === "ninetyER") && (
+        <>
+          <rect x="188" y="38" width="7" height="75" fill={support} />
+          <circle cx="90" cy="34" r="13" fill={stroke} />
+          <line x1="90" y1="49" x2="90" y2="112" stroke={stroke} strokeWidth="9" strokeLinecap="round" />
+          {kind === "ninetyER" ? (
+            <>
+              <line x1="91" y1="63" x2="132" y2="63" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+              <line x1="132" y1="63" x2="132" y2="25" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+              <line x1="132" y1="25" x2="190" y2="52" stroke={support} strokeWidth="4" strokeLinecap="round" />
+            </>
+          ) : (
+            <>
+              <line x1="92" y1="69" x2="121" y2="69" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+              <line x1="121" y1="69" x2="150" y2="87" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+              <line x1="150" y1="87" x2="190" y2="78" stroke={support} strokeWidth="4" strokeLinecap="round" />
+            </>
+          )}
+          <line x1="85" y1="112" x2="68" y2="128" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+          <line x1="95" y1="112" x2="114" y2="128" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+        </>
+      )}
+      {kind === "sideLyingER" && (
+        <>
+          <rect x="52" y="102" width="130" height="10" rx="4" fill={support} />
+          <circle cx="70" cy="82" r="13" fill={stroke} />
+          <line x1="84" y1="91" x2="146" y2="103" stroke={stroke} strokeWidth="12" strokeLinecap="round" />
+          <line x1="112" y1="82" x2="132" y2="82" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="132" y1="82" x2="132" y2="52" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <rect x="126" y="42" width="14" height="14" rx="3" fill={accent} />
+          <text x="118" y="28" fontSize="14" fill={support} fontWeight="700">肘夹身，小重量</text>
+        </>
+      )}
+      {kind === "row" && (
+        <>
+          <rect x="188" y="42" width="7" height="70" fill={support} />
+          <circle cx="94" cy="35" r="13" fill={stroke} />
+          <line x1="94" y1="50" x2="98" y2="112" stroke={stroke} strokeWidth="9" strokeLinecap="round" />
+          <line x1="100" y1="70" x2="142" y2="78" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="142" y1="78" x2="190" y2="68" stroke={support} strokeWidth="4" strokeLinecap="round" />
+          <path d="M82 72 Q98 84 114 72" fill="none" stroke={support} strokeWidth="3" />
+          <line x1="94" y1="112" x2="76" y2="128" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+          <line x1="103" y1="112" x2="122" y2="128" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+        </>
+      )}
+      {kind === "pushUpPlus" && (
+        <>
+          <line x1="54" y1="88" x2="168" y2="88" stroke={stroke} strokeWidth="11" strokeLinecap="round" />
+          <circle cx="181" cy="82" r="12" fill={stroke} />
+          <line x1="78" y1="91" x2="62" y2="126" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="145" y1="90" x2="158" y2="126" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <path d="M92 72 Q114 60 136 72" fill="none" stroke={support} strokeWidth="4" strokeLinecap="round" />
+          <text x="58" y="32" fontSize="14" fill={support} fontWeight="700">肘伸直，主动推开</text>
+        </>
+      )}
+      {kind === "proneY" && (
+        <>
+          <rect x="50" y="98" width="130" height="9" rx="4" fill={support} />
+          <circle cx="74" cy="80" r="12" fill={stroke} />
+          <line x1="86" y1="89" x2="146" y2="101" stroke={stroke} strokeWidth="11" strokeLinecap="round" />
+          <line x1="106" y1="88" x2="140" y2="55" stroke={accent} strokeWidth="7" strokeLinecap="round" />
+          <line x1="112" y1="91" x2="154" y2="69" stroke={accent} strokeWidth="7" strokeLinecap="round" />
+          <text x="112" y="30" fontSize="14" fill={support} fontWeight="700">Y 字上抬，不耸肩</text>
+        </>
+      )}
+      {kind === "weightShift" && (
+        <>
+          <rect x="54" y="95" width="124" height="8" rx="4" fill={support} />
+          <circle cx="132" cy="42" r="12" fill={stroke} />
+          <line x1="132" y1="56" x2="118" y2="92" stroke={stroke} strokeWidth="10" strokeLinecap="round" />
+          <line x1="116" y1="76" x2="84" y2="101" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="126" y1="76" x2="164" y2="101" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <path d="M84 115 Q120 132 164 115" fill="none" stroke={support} strokeWidth="4" strokeDasharray="5 5" />
+          <text x="58" y="28" fontSize="14" fill={support} fontWeight="700">左右轻移重心</text>
+        </>
+      )}
+      {kind === "shoulderTap" && (
+        <>
+          <line x1="58" y1="86" x2="170" y2="86" stroke={stroke} strokeWidth="11" strokeLinecap="round" />
+          <circle cx="184" cy="80" r="12" fill={stroke} />
+          <line x1="82" y1="90" x2="66" y2="126" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="148" y1="88" x2="162" y2="126" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <path d="M118 83 Q146 66 158 84" fill="none" stroke={support} strokeWidth="6" strokeLinecap="round" />
+          <text x="64" y="30" fontSize="14" fill={support} fontWeight="700">身体不晃，轻触肩</text>
+        </>
+      )}
+      {kind === "pikeHold" && (
+        <>
+          <circle cx="156" cy="78" r="12" fill={stroke} />
+          <line x1="150" y1="90" x2="102" y2="66" stroke={stroke} strokeWidth="11" strokeLinecap="round" />
+          <line x1="102" y1="66" x2="62" y2="126" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="100" y1="68" x2="140" y2="126" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="156" y1="90" x2="185" y2="124" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <text x="46" y="30" fontSize="14" fill={support} fontWeight="700">低角度，肩不过痛区</text>
+        </>
+      )}
+      {kind === "neutralPull" && (
+        <>
+          <line x1="60" y1="30" x2="180" y2="30" stroke={support} strokeWidth="8" strokeLinecap="round" />
+          <circle cx="120" cy="66" r="13" fill={stroke} />
+          <line x1="120" y1="80" x2="120" y2="120" stroke={stroke} strokeWidth="9" strokeLinecap="round" />
+          <line x1="110" y1="55" x2="90" y2="32" stroke={accent} strokeWidth="7" strokeLinecap="round" />
+          <line x1="130" y1="55" x2="150" y2="32" stroke={accent} strokeWidth="7" strokeLinecap="round" />
+          <line x1="116" y1="120" x2="98" y2="128" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+          <line x1="124" y1="120" x2="142" y2="128" stroke={stroke} strokeWidth="8" strokeLinecap="round" />
+          <text x="62" y="145" fontSize="13" fill={support} fontWeight="700">严格慢速，保留余力</text>
+        </>
+      )}
+      {kind === "inclinePush" && (
+        <>
+          <rect x="154" y="88" width="52" height="10" rx="4" fill={support} />
+          <circle cx="83" cy="64" r="12" fill={stroke} />
+          <line x1="95" y1="72" x2="154" y2="90" stroke={stroke} strokeWidth="11" strokeLinecap="round" />
+          <line x1="154" y1="90" x2="184" y2="98" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <line x1="112" y1="78" x2="64" y2="126" stroke={accent} strokeWidth="8" strokeLinecap="round" />
+          <text x="72" y="30" fontSize="14" fill={support} fontWeight="700">高台降低肩负荷</text>
+        </>
+      )}
+    </svg>
+  );
+}
+
 export default function CalisthenicsPlanPage() {
   const [week, setWeek] = useState(1);
   const [rehabWeek, setRehabWeek] = useState(1);
@@ -609,6 +873,9 @@ export default function CalisthenicsPlanPage() {
   const selectedRehab = rehabForWeek(rehabWeek);
   const rehabToday = rehabWeeklySchedule[new Date().getDay() === 0 ? 6 : new Date().getDay() - 1];
   const rehabFocus = rehabFocusForWeek(rehabWeek);
+  const rehabFocusExercises = rehabFocus
+    .map((name) => rehabExercises.find((exercise) => exercise.name === name))
+    .filter((exercise): exercise is RehabExercise => Boolean(exercise));
   const checklist = useMemo(
     () => [...maintenance, ...selectedSession.exercises],
     [selectedSession.exercises],
@@ -1003,8 +1270,19 @@ export default function CalisthenicsPlanPage() {
             <p className={styles.lead}>{rehabToday.detail}</p>
             <div className={styles.rehabActionList}>
               <strong>第 {rehabWeek} 周完整课动作</strong>
-              {rehabFocus.map((item) => (
-                <span key={item}>{item}</span>
+              {rehabFocusExercises.map((exercise) => (
+                <article className={styles.rehabTodayCard} key={exercise.name}>
+                  <RehabIllustration kind={exercise.demo} />
+                  <div>
+                    <strong>{exercise.name}</strong>
+                    <span>{exercise.dose}</span>
+                    <p>{exercise.cue}</p>
+                    <small>常见错误：{exercise.mistake}</small>
+                    <a href={exercise.sourceHref} target="_blank" rel="noreferrer">
+                      {exercise.sourceLabel}
+                    </a>
+                  </div>
+                </article>
               ))}
             </div>
           </div>
@@ -1046,9 +1324,14 @@ export default function CalisthenicsPlanPage() {
             <div className={styles.rehabExerciseGrid}>
               {rehabExercises.map((exercise) => (
                 <article key={exercise.name}>
+                  <RehabIllustration kind={exercise.demo} />
                   <strong>{exercise.name}</strong>
                   <span>{exercise.weeks} 周 · {exercise.dose}</span>
                   <p>{exercise.cue}</p>
+                  <small>常见错误：{exercise.mistake}</small>
+                  <a href={exercise.sourceHref} target="_blank" rel="noreferrer">
+                    {exercise.sourceLabel}
+                  </a>
                 </article>
               ))}
             </div>

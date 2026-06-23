@@ -411,7 +411,7 @@
   font-size: 15px;
 }
 
-.rehabActionList span {
+.rehabActionList > span {
   border: 1px solid #dcd5c8;
   border-radius: 8px;
   background: #fffdf7;
@@ -420,10 +420,76 @@
   line-height: 1.45;
 }
 
+.rehabTodayCard {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  border: 1px solid #dcd5c8;
+  border-radius: 8px;
+  background: #fffdf7;
+  padding: 12px;
+}
+
+.rehabTodayCard div {
+  display: grid;
+  gap: 6px;
+}
+
+.rehabTodayCard strong,
+.rehabExerciseGrid strong {
+  display: block;
+  color: #1f2528;
+  font-size: 17px;
+}
+
+.rehabTodayCard span,
+.rehabExerciseGrid span {
+  display: block;
+  color: #b1503e;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.rehabTodayCard p,
+.rehabExerciseGrid p {
+  margin: 0;
+  color: #59625d;
+  line-height: 1.55;
+}
+
+.rehabTodayCard small,
+.rehabExerciseGrid small {
+  color: #713729;
+  line-height: 1.45;
+}
+
+.rehabTodayCard a,
+.rehabExerciseGrid a {
+  width: fit-content;
+  color: #1f5c79;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.rehabTodayCard a:hover,
+.rehabExerciseGrid a:hover {
+  color: #b1503e;
+}
+
+.rehabSvg {
+  display: block;
+  width: 100%;
+  aspect-ratio: 8 / 5;
+  border: 1px solid #d8d2c4;
+  border-radius: 8px;
+  background: #f7f3e8;
+}
+
 .rehabCalendar,
 .rehabExerciseGrid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
   margin-top: 18px;
 }
@@ -437,14 +503,7 @@
 }
 
 .rehabCalendar strong,
-.rehabExerciseGrid strong {
-  display: block;
-  color: #1f2528;
-  font-size: 16px;
-}
-
-.rehabCalendar span,
-.rehabExerciseGrid span {
+.rehabCalendar span {
   display: block;
   margin-top: 6px;
   color: #b1503e;
@@ -452,11 +511,15 @@
   font-weight: 900;
 }
 
-.rehabCalendar p,
-.rehabExerciseGrid p {
+.rehabCalendar p {
   margin: 8px 0 0;
   color: #59625d;
   line-height: 1.55;
+}
+
+.rehabExerciseGrid article {
+  display: grid;
+  gap: 9px;
 }
 
 .warningBox {
@@ -696,5 +759,9 @@
 
   .pdfFrame iframe {
     min-height: 66vh;
+  }
+
+  .rehabTodayCard {
+    grid-template-columns: 1fr;
   }
 }
