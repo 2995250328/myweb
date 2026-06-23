@@ -490,11 +490,93 @@
   color: #1f5c79;
 }
 
+.demoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.demoCard {
+  display: grid;
+  gap: 12px;
+  border: 1px solid #d8d2c4;
+  border-radius: 8px;
+  background: rgba(255, 255, 249, 0.94);
+  padding: 14px;
+  box-shadow: 0 16px 40px rgba(41, 48, 50, 0.08);
+}
+
+.demoHeader {
+  display: grid;
+  gap: 6px;
+}
+
+.demoHeader span {
+  width: fit-content;
+  border-radius: 999px;
+  background: #eef6ee;
+  color: #2f6858;
+  padding: 5px 9px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.demoHeader strong {
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.demoHeader small {
+  color: #59625d;
+  line-height: 1.5;
+}
+
+.videoFrame,
+.videoFallback {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid #293033;
+  border-radius: 8px;
+  background: #20282b;
+}
+
+.videoFrame {
+  display: block;
+}
+
+.videoFallback {
+  display: grid;
+  place-items: center;
+  color: #fffdf7;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.demoCues {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 18px;
+  color: #31403a;
+  line-height: 1.55;
+}
+
+.demoLink {
+  color: #1f5c79;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.demoLink:hover {
+  color: #b1503e;
+}
+
 @media (max-width: 1100px) {
   .hero,
   .twoColumn,
   .statusGrid,
-  .sourceGrid {
+  .sourceGrid,
+  .demoGrid {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -519,6 +601,7 @@
   .statusGrid,
   .sourceGrid,
   .testGrid,
+  .demoGrid,
   .formGrid {
     grid-template-columns: 1fr;
   }

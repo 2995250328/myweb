@@ -17,6 +17,15 @@ type Session = {
   exercises: Exercise[];
 };
 
+type VideoDemo = {
+  title: string;
+  group: "街健技能" | "肩袖康复";
+  target: string;
+  videoId?: string;
+  href: string;
+  cues: string[];
+};
+
 type LogEntry = {
   id: string;
   date: string;
@@ -254,6 +263,111 @@ const pdfs = [
   },
 ];
 
+const videoDemos: VideoDemo[] = [
+  {
+    title: "严格引体向上",
+    group: "街健技能",
+    target: "第 1 天拉力基础、双力臂前置能力",
+    videoId: "aNUSgyWRJYA",
+    href: "https://www.youtube.com/watch?v=aNUSgyWRJYA",
+    cues: [
+      "起始先下沉肩胛，再屈肘上拉。",
+      "全程收紧躯干，避免甩腿借摆。",
+      "下放到接近伸肘，不要半程刷次数。",
+    ],
+  },
+  {
+    title: "前水平进阶",
+    group: "街健技能",
+    target: "tuck / advanced tuck front lever、直臂下压",
+    videoId: "rx0vr-teG7M",
+    href: "https://www.youtube.com/watch?v=rx0vr-teG7M",
+    cues: [
+      "肩胛下沉后倾，肘保持伸直。",
+      "先稳定 tuck，再推进到 advanced tuck。",
+      "髋不要塌，身体维持空心位。",
+    ],
+  },
+  {
+    title: "动作进阶选择",
+    group: "街健技能",
+    target: "什么时候加重、什么时候换变式",
+    videoId: "pnpn7Rtsa74",
+    href: "https://www.youtube.com/watch?v=pnpn7Rtsa74",
+    cues: [
+      "动态动作到区间上限再加重。",
+      "静态动作到目标时间再增加杠杆。",
+      "不要在动作质量变形时升级。",
+    ],
+  },
+  {
+    title: "双力臂技术",
+    group: "街健技能",
+    target: "低杠转杠、弹力带辅助双力臂、爆发拉力",
+    href: "https://www.youtube.com/results?search_query=strict+muscle+up+tutorial+calisthenics",
+    cues: [
+      "先练高拉高度，再练快速转杠。",
+      "支撑末端要稳，不要靠翻腕硬蹭。",
+      "肩不舒服时只做低杠分解，不做爆发转换。",
+    ],
+  },
+  {
+    title: "倒立与倒立撑基础",
+    group: "街健技能",
+    target: "面墙倒立、pike push-up、靠墙倒立撑离心",
+    href: "https://fitnessfaqs.com/articles/ff-video-tag/handstands/",
+    cues: [
+      "面墙倒立先追线条，不追时间。",
+      "臀肋收紧，耳夹臂，掌指主动抓地。",
+      "肩屈受限时先退回 wall slide 和 pike hold。",
+    ],
+  },
+  {
+    title: "俄挺 lean / planche lean",
+    group: "街健技能",
+    target: "planche lean、伪俄挺俯卧撑、手腕承重适应",
+    href: "https://www.youtube.com/results?search_query=planche+lean+tutorial+calisthenics",
+    cues: [
+      "主动推地，肩胛前伸，不是只把身体往前倒。",
+      "肘锁定，手腕无痛才增加前倾。",
+      "高身高训练者更要慢推进，避免一开始追大角度。",
+    ],
+  },
+  {
+    title: "AAOS 肩部调理动作",
+    group: "肩袖康复",
+    target: "Pendulum、交叉抱肩、弹力带外旋、站姿划船",
+    href: "https://orthoinfo.aaos.org/en/recovery/rotator-cuff-and-shoulder-conditioning-program/",
+    cues: [
+      "恢复期先追无痛活动度和动作控制。",
+      "外旋动作手肘夹身，阻力宁轻不重。",
+      "任何刺痛、夜间痛或次晨加重都先回退。",
+    ],
+  },
+  {
+    title: "Wall Slide / Push-up Plus",
+    group: "肩袖康复",
+    target: "前锯肌、肩胛上旋、闭链稳定",
+    href: "https://www.youtube.com/results?search_query=serratus+wall+slide+push+up+plus+physical+therapy",
+    cues: [
+      "肋骨收住，不用腰椎代偿上举。",
+      "重点是推开墙或地面，不是耸肩。",
+      "只做到动作稳定的高度和角度。",
+    ],
+  },
+  {
+    title: "肩袖恢复总览",
+    group: "肩袖康复",
+    target: "外旋、内旋、肩胛稳定、回归上肢训练",
+    href: "https://www.youtube.com/results?search_query=E3+Rehab+rotator+cuff+exercises",
+    cues: [
+      "先恢复疼痛耐受和 ROM，再上强度。",
+      "第 1-4 周更保守，第 5 周后才允许很轻微不适。",
+      "训练后和次晨必须回到基线。",
+    ],
+  },
+];
+
 function phaseForWeek(week: number) {
   if (week <= 4) return strengthPhases[0];
   if (week <= 8) return strengthPhases[1];
@@ -272,7 +386,7 @@ export default function CalisthenicsPlanPage() {
   const [week, setWeek] = useState(1);
   const [rehabWeek, setRehabWeek] = useState(1);
   const [sessionIndex, setSessionIndex] = useState(0);
-  const [activeTab, setActiveTab] = useState<"plan" | "rehab" | "logs" | "library">("plan");
+  const [activeTab, setActiveTab] = useState<"plan" | "rehab" | "demos" | "logs" | "library">("plan");
   const [completed, setCompleted] = useState<Record<string, boolean>>({});
   const [logs, setLogs] = useState<LogEntry[]>([]);
   const [loaded, setLoaded] = useState(false);
@@ -565,7 +679,7 @@ export default function CalisthenicsPlanPage() {
           <strong>
             {stats.doneToday}/{stats.totalToday}
           </strong>
-          <p>勾选会自动保存在本机浏览器。</p>
+          <p>勾选会自动同步到当前存储。</p>
         </article>
         <article>
           <span>记录均值</span>
@@ -578,6 +692,7 @@ export default function CalisthenicsPlanPage() {
         {[
           ["plan", "专项计划"],
           ["rehab", "肩袖恢复"],
+          ["demos", "动作示范"],
           ["logs", "记录面板"],
           ["library", "PDF 原文库"],
         ].map(([id, label]) => (
@@ -703,6 +818,50 @@ export default function CalisthenicsPlanPage() {
                 <p key={item}>{item}</p>
               ))}
             </div>
+          </div>
+        </section>
+      )}
+
+      {activeTab === "demos" && (
+        <section className={styles.library}>
+          <div className={styles.panelWide}>
+            <p className={styles.eyebrow}>动作示范</p>
+            <h2>先看动作，再照计划执行。</h2>
+            <p className={styles.lead}>
+              视频用于理解动作路线和常见代偿；肩袖恢复动作以无痛、慢速、可控为第一优先。若视频无法在当前网络内嵌播放，点卡片里的“打开示范”。
+            </p>
+          </div>
+          <div className={styles.demoGrid}>
+            {videoDemos.map((demo) => (
+              <article className={styles.demoCard} key={demo.title}>
+                <div className={styles.demoHeader}>
+                  <span>{demo.group}</span>
+                  <strong>{demo.title}</strong>
+                  <small>{demo.target}</small>
+                </div>
+                {demo.videoId ? (
+                  <iframe
+                    className={styles.videoFrame}
+                    src={`https://www.youtube.com/embed/${demo.videoId}`}
+                    title={demo.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                ) : (
+                  <a className={styles.videoFallback} href={demo.href} target="_blank" rel="noreferrer">
+                    打开示范
+                  </a>
+                )}
+                <ul className={styles.demoCues}>
+                  {demo.cues.map((cue) => (
+                    <li key={cue}>{cue}</li>
+                  ))}
+                </ul>
+                <a className={styles.demoLink} href={demo.href} target="_blank" rel="noreferrer">
+                  打开示范来源
+                </a>
+              </article>
+            ))}
           </div>
         </section>
       )}
