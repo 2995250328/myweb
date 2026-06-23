@@ -1,5 +1,5 @@
-import PracticeApp from "@/components/practice/PracticeApp";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return <PracticeApp />;
+  redirect("/calisthenics");
 }
