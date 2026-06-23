@@ -41,6 +41,15 @@ type ProgressPayload = {
   error?: string;
 };
 
+async function responseError(response: Response, fallback: string) {
+  try {
+    const data = (await response.json()) as ProgressPayload;
+    return data.error ?? fallback;
+  } catch {
+    return fallback;
+  }
+}
+
 const todayInShanghai = () =>
   new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Shanghai",
@@ -311,7 +320,7 @@ export default function CalisthenicsPlanPage() {
           }
           return;
         }
-        if (!response.ok) throw new Error("读取统一进度失败");
+        if (!response.ok) throw new Error(await responseError(response, "读取统一进度失败"));
 
         const progress = (await response.json()) as ProgressPayload;
         const serverHasData =
@@ -381,7 +390,7 @@ export default function CalisthenicsPlanPage() {
             },
           } satisfies ProgressPayload),
         });
-        if (!response.ok) throw new Error("保存失败");
+        if (!response.ok) throw new Error(await responseError(response, "保存失败"));
 
         const progress = (await response.json()) as ProgressPayload;
         setStorageMode(progress.storage === "supabase" ? "Supabase 云端" : "本地 JSON");
@@ -421,7 +430,7 @@ export default function CalisthenicsPlanPage() {
         setSaveStatus("访问码不正确");
         return;
       }
-      if (!response.ok) throw new Error("读取统一进度失败");
+      if (!response.ok) throw new Error(await responseError(response, "读取统一进度失败"));
 
       const progress = (await response.json()) as ProgressPayload;
       setCompleted(progress.completed ?? {});

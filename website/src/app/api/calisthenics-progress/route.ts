@@ -92,13 +92,13 @@ async function writeProgress(progress: ProgressPayload) {
 }
 
 function storageMode() {
-  return process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY
+  return process.env.SUPABASE_URL?.trim() && process.env.SUPABASE_SERVICE_ROLE_KEY?.trim()
     ? "supabase"
     : "local-json";
 }
 
 function checkAccess(request: Request) {
-  const expectedCode = process.env.CALISTHENICS_ACCESS_CODE;
+  const expectedCode = process.env.CALISTHENICS_ACCESS_CODE?.trim();
   if (!expectedCode) return true;
   return request.headers.get("x-calisthenics-code") === expectedCode;
 }
@@ -111,7 +111,7 @@ function unauthorized() {
 }
 
 function supabaseHeaders() {
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
 
   return {
     apikey: key ?? "",
@@ -121,7 +121,12 @@ function supabaseHeaders() {
 }
 
 function supabaseBaseUrl() {
-  return `${process.env.SUPABASE_URL}/rest/v1/calisthenics_progress`;
+  const projectUrl = (process.env.SUPABASE_URL ?? "")
+    .trim()
+    .replace(/\/rest\/v1\/?$/, "")
+    .replace(/\/$/, "");
+
+  return `${projectUrl}/rest/v1/calisthenics_progress`;
 }
 
 async function readSupabaseProgress() {
@@ -134,7 +139,8 @@ async function readSupabaseProgress() {
   );
 
   if (!response.ok) {
-    throw new Error(`Supabase read failed: ${response.status}`);
+    const details = await response.text();
+    throw new Error(`Supabase read failed: ${response.status} ${details}`);
   }
 
   const rows = (await response.json()) as Array<{
@@ -170,7 +176,8 @@ async function writeSupabaseProgress(progress: ProgressPayload) {
   );
 
   if (!response.ok) {
-    throw new Error(`Supabase write failed: ${response.status}`);
+    const details = await response.text();
+    throw new Error(`Supabase write failed: ${response.status} ${details}`);
   }
 }
 
