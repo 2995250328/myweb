@@ -3,10 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "generate-ascii": "node scripts/generate-ascii.mjs",
-    "predev": "node scripts/generate-ascii.mjs",
     "dev": "next dev",
-    "prebuild": "node scripts/generate-ascii.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"

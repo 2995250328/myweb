@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import CalisthenicsPlanPage from "@/app/calisthenics/page";
 
 export default function Home() {
-  redirect("/calisthenics");
+  return <CalisthenicsPlanPage />;
 }
