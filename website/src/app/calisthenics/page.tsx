@@ -26,6 +26,19 @@ type VideoDemo = {
   cues: string[];
 };
 
+type RehabDay = {
+  day: string;
+  type: "完整恢复课" | "12 分钟维护" | "技术回归" | "休息";
+  detail: string;
+};
+
+type RehabExercise = {
+  name: string;
+  weeks: string;
+  dose: string;
+  cue: string;
+};
+
 type LogEntry = {
   id: string;
   date: string;
@@ -199,6 +212,195 @@ const maintenance = [
   { name: "Serratus Wall Slide 或 Push-up Plus", dose: "2 x 10", cue: "推开地面或墙，避免耸肩代偿。" },
   { name: "站姿划船", dose: "2 x 12", cue: "肩胛后缩下沉，胸骨保持展开。" },
 ];
+
+const rehabWeeklySchedule: RehabDay[] = [
+  {
+    day: "周一",
+    type: "完整恢复课",
+    detail: "维护课 12 分钟 + 当前阶段肩袖/肩胛强化。记录最高疼痛和次晨反应。",
+  },
+  {
+    day: "周二",
+    type: "12 分钟维护",
+    detail: "只做维护课；可加下肢、有氧或散步，不做上肢爆发。",
+  },
+  {
+    day: "周三",
+    type: "完整恢复课",
+    detail: "维护课 12 分钟 + 闭链稳定或轻度街健回归。动作全程保留 2-3 次余力。",
+  },
+  {
+    day: "周四",
+    type: "12 分钟维护",
+    detail: "维护课 + 休息/步行。若前一天次晨更痛，今天只做无痛 ROM。",
+  },
+  {
+    day: "周五",
+    type: "完整恢复课",
+    detail: "维护课 12 分钟 + 肩袖/肩胛强化。只有绿灯状态才维持或小幅推进。",
+  },
+  {
+    day: "周六",
+    type: "技术回归",
+    detail: "第 1-4 周只做维护课；第 5-8 周可加低风险回归动作，如中立握引体辅助、高斜板俯卧撑、低角度 pike hold。",
+  },
+  {
+    day: "周日",
+    type: "休息",
+    detail: "散步、胸椎活动或轻拉伸。若夜间痛/静息痛回潮，下一周不要升级。",
+  },
+];
+
+const rehabExercises: RehabExercise[] = [
+  {
+    name: "Pendulum",
+    weeks: "1-8",
+    dose: "2 x 10/方向 或 1 分钟",
+    cue: "身体带动手臂轻摆，不主动甩肩。疼痛期用它做低刺激活动。",
+  },
+  {
+    name: "交叉抱肩拉伸",
+    weeks: "1-8",
+    dose: "2-4 x 30 秒/侧",
+    cue: "拉后肩，不把肩头向前顶。刺痛时减小幅度。",
+  },
+  {
+    name: "被动外旋/内旋拉伸",
+    weeks: "1-2",
+    dose: "各 4 x 30 秒",
+    cue: "轻拉到紧，不拉到痛。用于恢复活动度，不追极限角度。",
+  },
+  {
+    name: "墙滑 Wall Slide",
+    weeks: "1-8",
+    dose: "2-3 x 8-12",
+    cue: "肋骨收住，前臂贴墙；一耸肩或腰反弓就停在较低高度。",
+  },
+  {
+    name: "肩胛后缩/下沉",
+    weeks: "1-2",
+    dose: "2-3 x 10，每次停 3-5 秒",
+    cue: "轻轻把肩胛放回稳定位置，不夹到脖子紧。",
+  },
+  {
+    name: "弹力带外旋等长",
+    weeks: "1-2",
+    dose: "5 x 20-30 秒",
+    cue: "手肘夹身，肩不耸。RPE 3-4，接近无痛。",
+  },
+  {
+    name: "弹力带外旋/内旋",
+    weeks: "3-8",
+    dose: "3 x 12-15",
+    cue: "前臂像门轴旋转，身体不后仰。宁可轻阻力慢节奏。",
+  },
+  {
+    name: "侧卧外旋",
+    weeks: "3-8",
+    dose: "3 x 12-15",
+    cue: "1-2 kg 起步，肘下可垫毛巾。顶端停一下，不借惯性。",
+  },
+  {
+    name: "站姿划船",
+    weeks: "1-8",
+    dose: "2-3 x 10-12",
+    cue: "肩胛后缩下沉，胸骨展开，手肘不要飞太高。",
+  },
+  {
+    name: "Serratus Wall Slide / Push-up Plus",
+    weeks: "3-8",
+    dose: "2-3 x 10-15",
+    cue: "重点是推开墙/地面，练前锯肌，不是耸肩。",
+  },
+  {
+    name: "俯卧 Y / 低斜板 Y",
+    weeks: "3-6",
+    dose: "2-3 x 8-12",
+    cue: "拇指朝上，低负荷找下斜方和肩胛控制。",
+  },
+  {
+    name: "桌上闭链负重转移",
+    weeks: "3-6",
+    dose: "3 x 20-30 秒",
+    cue: "从高支撑开始，左右轻移重心；肩不塌、不耸、不痛。",
+  },
+  {
+    name: "90 度外展位外旋",
+    weeks: "5-8",
+    dose: "2-3 x 8-10",
+    cue: "只在无静息痛、ROM 明显恢复后加。动作慢，阻力轻。",
+  },
+  {
+    name: "低斜板肩触碰",
+    weeks: "5-8",
+    dose: "3 x 6-10/侧",
+    cue: "骨盆和胸廓不晃，肩胛稳定。疼痛超过 3/10 立刻退回支撑保持。",
+  },
+  {
+    name: "低角度 pike hold",
+    weeks: "7-8",
+    dose: "4 x 20-30 秒",
+    cue: "恢复过顶承重前置动作。肩屈不足或次晨更痛就取消。",
+  },
+  {
+    name: "中立握引体回归",
+    weeks: "7-8",
+    dose: "3-5 组，保留 2-3 次余力",
+    cue: "只做严格、慢速、无次晨反应的版本，不做爆发拉或借力。",
+  },
+];
+
+function rehabFocusForWeek(week: number) {
+  if (week <= 2) {
+    return [
+      "Pendulum 2 x 10/方向",
+      "交叉抱肩拉伸 2-4 x 30 秒/侧",
+      "被动外旋/内旋拉伸 各 4 x 30 秒",
+      "墙滑 2-3 x 8-12",
+      "肩胛后缩/下沉 2-3 x 10",
+      "弹力带外旋等长 5 x 20-30 秒",
+      "斜板 Push-up Plus 2-3 x 8-12",
+      "站姿划船 2 x 10",
+    ];
+  }
+
+  if (week <= 4) {
+    return [
+      "弹力带外旋 3 x 12-15",
+      "弹力带内旋 3 x 12-15",
+      "侧卧外旋 3 x 12-15",
+      "站姿划船 3 x 10-12",
+      "Serratus Wall Slide 2-3 x 10-12",
+      "斜板 Push-up Plus 3 x 10-15",
+      "俯卧 Y 或低斜板 Y 2 x 8-12",
+      "桌上闭链负重转移 3 x 20-30 秒",
+    ];
+  }
+
+  if (week <= 6) {
+    return [
+      "侧卧外旋 3 x 15",
+      "站姿外旋 3 x 12",
+      "90 度外展位外旋 2-3 x 8-10",
+      "站姿划船 3 x 12",
+      "Push-up Plus 逐步降高 3 x 12-15",
+      "低斜板肩触碰 3 x 6-10/侧",
+      "Prone Y / scaption 3 x 10",
+      "Pike lean 或箱上熊爬支撑 4 x 15-20 秒",
+    ];
+  }
+
+  return [
+    "侧卧外旋或站姿外旋 3 x 12 维持",
+    "90 度外展位外旋 3 x 10",
+    "Push-up Plus 3 x 15",
+    "俯身划船/弹力带划船 3 x 12",
+    "低角度 pike hold 4 x 20-30 秒",
+    "中立握引体回归 3-5 组，保留 2-3 次余力",
+    "高斜板俯卧撑 3 x 8-12",
+    "低台支撑转移 3 x 20-30 秒",
+  ];
+}
 
 const readinessTests = [
   "严格引体 8-12 次，全程伸肘、下巴过杠、无摆动。",
@@ -405,6 +607,8 @@ export default function CalisthenicsPlanPage() {
   const selectedSession = strengthSessions[sessionIndex];
   const selectedPhase = phaseForWeek(week);
   const selectedRehab = rehabForWeek(rehabWeek);
+  const rehabToday = rehabWeeklySchedule[new Date().getDay() === 0 ? 6 : new Date().getDay() - 1];
+  const rehabFocus = rehabFocusForWeek(rehabWeek);
   const checklist = useMemo(
     () => [...maintenance, ...selectedSession.exercises],
     [selectedSession.exercises],
@@ -794,6 +998,18 @@ export default function CalisthenicsPlanPage() {
           </div>
 
           <div className={styles.panel}>
+            <p className={styles.eyebrow}>今天怎么做</p>
+            <h2>{rehabToday.day}：{rehabToday.type}</h2>
+            <p className={styles.lead}>{rehabToday.detail}</p>
+            <div className={styles.rehabActionList}>
+              <strong>第 {rehabWeek} 周完整课动作</strong>
+              {rehabFocus.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className={styles.panel}>
             <p className={styles.eyebrow}>疼痛交通灯</p>
             <h2>先降级，再加量。</h2>
             <div className={styles.traffic}>
@@ -807,6 +1023,34 @@ export default function CalisthenicsPlanPage() {
             <div className={styles.warningBox}>
               <strong>立即停训并就医：</strong>
               跌倒或扭伤后畸形、完全抬不起手臂、明显无力坠落、剧烈肿胀、麻木放射痛、胸痛气短，或 12 周规范训练仍严重疼痛。
+            </div>
+          </div>
+
+          <div className={styles.panelWide}>
+            <p className={styles.eyebrow}>每周安排</p>
+            <h2>按周历执行，不靠临场发挥。</h2>
+            <div className={styles.rehabCalendar}>
+              {rehabWeeklySchedule.map((day) => (
+                <article key={day.day}>
+                  <strong>{day.day}</strong>
+                  <span>{day.type}</span>
+                  <p>{day.detail}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className={styles.panelWide}>
+            <p className={styles.eyebrow}>动作处方库</p>
+            <h2>每个恢复动作的周次、组数和执行要点。</h2>
+            <div className={styles.rehabExerciseGrid}>
+              {rehabExercises.map((exercise) => (
+                <article key={exercise.name}>
+                  <strong>{exercise.name}</strong>
+                  <span>{exercise.weeks} 周 · {exercise.dose}</span>
+                  <p>{exercise.cue}</p>
+                </article>
+              ))}
             </div>
           </div>
 

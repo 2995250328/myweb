@@ -400,6 +400,65 @@
   border-left: 6px solid #b1503e;
 }
 
+.rehabActionList {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.rehabActionList strong {
+  color: #1f2528;
+  font-size: 15px;
+}
+
+.rehabActionList span {
+  border: 1px solid #dcd5c8;
+  border-radius: 8px;
+  background: #fffdf7;
+  color: #31403a;
+  padding: 10px 12px;
+  line-height: 1.45;
+}
+
+.rehabCalendar,
+.rehabExerciseGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.rehabCalendar article,
+.rehabExerciseGrid article {
+  border: 1px solid #dcd5c8;
+  border-radius: 8px;
+  background: #fffdf7;
+  padding: 14px;
+}
+
+.rehabCalendar strong,
+.rehabExerciseGrid strong {
+  display: block;
+  color: #1f2528;
+  font-size: 16px;
+}
+
+.rehabCalendar span,
+.rehabExerciseGrid span {
+  display: block;
+  margin-top: 6px;
+  color: #b1503e;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.rehabCalendar p,
+.rehabExerciseGrid p {
+  margin: 8px 0 0;
+  color: #59625d;
+  line-height: 1.55;
+}
+
 .warningBox {
   margin-top: 14px;
   padding: 14px;
@@ -576,6 +635,8 @@
   .twoColumn,
   .statusGrid,
   .sourceGrid,
+  .rehabCalendar,
+  .rehabExerciseGrid,
   .demoGrid {
     grid-template-columns: 1fr 1fr;
   }
@@ -601,6 +662,8 @@
   .statusGrid,
   .sourceGrid,
   .testGrid,
+  .rehabCalendar,
+  .rehabExerciseGrid,
   .demoGrid,
   .formGrid {
     grid-template-columns: 1fr;
